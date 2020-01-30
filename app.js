@@ -1,10 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const Employee = require('./employee.js');
-const Manager = require('./manager.js');
-const Engineer = require('./engineer.js');
-const Intern = require('./intern.js');
+const Employee = require('./lib/employee.js');
+const Manager = require('./lib/manager.js');
+const Engineer = require('./lib/engineer.js');
+const Intern = require('./lib/intern.js');
 
 inquirer
   .prompt([
