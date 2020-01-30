@@ -6,17 +6,16 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
-inquirer
-  .prompt([
+const questions = [
     {
       type: "list",
-      name: "role",
+      name: "title",
       message: "What is your role?",
       choices: ['Manager', 'Employee', 'Engineer', 'Intern']
     },
     {
       type: "input",
-      name: "password",
+      name: "name",
       message: "What is your name?",
     },
     {
@@ -29,13 +28,11 @@ inquirer
       name: "email",
       message: "What is your email?",
     }
-  ])
-  .then(function(response) {
+  ]
 
-    if (response.confirm === response.password) {
-      console.log("Success!");
-    }
-    else {
-      console.log("You forgot your password already?!");
-    }
-  });
+  inquirer.prompt(questions)
+
+  .then(function(resp) {
+    const newEmployee = new Employee(resp.name, resp.ID, resp.title);
+    newEmployee.getName();
+  })
