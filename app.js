@@ -1,6 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const Employee = require('./employee.js');
+const Manager = require('./manager.js');
+const Engineer = require('./engineer.js');
+const Intern = require('./intern.js');
+
 inquirer
   .prompt([
     {
@@ -34,73 +39,3 @@ inquirer
       console.log("You forgot your password already?!");
     }
   });
-
-class Employee {
-  constructor (name, id, title) {
-    this.name = name;
-    this.id = id;
-    this.title = title;
-  }
-
-  getName() {
-
-  }
-
-  getId() {
-
-  }
-
-  getEmail() {
-
-  }
-
-  getRole() {
-
-    // RETURNS 'EMPLOYEE'
-  }
-}
-
-class Manager extends Employee {
-  constructor(officeNumber) {
-    super();
-    this.officeNumber = officeNumber;
-  }
-  
-  getRole() {
-
-    // OVERRIDDEN TO RETURN 'MANAGER'
-  }
-}
-
-class Engineer extends Employee {
-  constructor(github) {
-    super();
-    // GITHUB USERNAME
-    this.github = github;
-  }
-
-  getGithub() {
-
-  }
-
-  getRole() {
-
-    // OVERRIDDEN TO RETURN 'ENGINEER'
-  }
-}
-
-class Intern extends Employee {
-  constructor(school) {
-    super();
-    this.school = school;
-  }
-
-  getSchool() {
-
-  }
-
-  getRole() {
-
-    //OVERRIDDEN TO RETURN 'INTERN'
-  }
-}
