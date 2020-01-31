@@ -91,7 +91,7 @@ function newTeamMember() {
       }
     ]).then(function(resp) {
       // Creating new Engineer obj
-      const newEngineer = new Engineer(resp.name, resp.ID, "Engineer", resp.gitHub);
+      const newEngineer = new Engineer(resp.name, resp.ID, "Engineer", resp.email, resp.gitHub);
 
       // Calling function from engineer.js to append responses to text file
       newEngineer.appendToTextFile();
@@ -129,7 +129,7 @@ function newTeamMember() {
     ]).then(function(resp) {
 
       // Creating new Intern obj
-      const newIntern = new Intern(resp.name, resp.ID, "Intern", resp.school);
+      const newIntern = new Intern(resp.name, resp.ID, "Intern", resp.email, resp.school);
 
       // Calling function from intern.js to append responses to text file
       newIntern.appendToTextFile();

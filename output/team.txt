@@ -2,23 +2,23 @@
       Team:
       ==============================
       Role: Manager
-      Name: fbd
-      ID: dfg
-      Email: sdv
-      Office Number: sdf
+      Name: Gary
+      ID: 1
+      Email: Gary@gary.com
+      Office Number: 701
       ------------------------------
     
       Role: Engineer
-      Name: sdvsd
-      ID: sds
-      Email: undefined
-      GitHub: sdfs
+      Name: Dan
+      ID: 2
+      Email: Dan@dan.com
+      GitHub: DanDan
       ------------------------------
     
       Role: Intern
-      Name: aesfaw
-      ID: sdgs
-      Email: undefined
-      School: fae
+      Name: Aya
+      ID: 3
+      Email: Aya@aya.com
+      School: Brooklyn College
       ------------------------------
     
