@@ -87,7 +87,7 @@ function newTeamMember() {
         message: "What is your gitHub username?",
       }
     ]).then(function(resp) {
-      const newEngineer = new Engineer(resp.name, resp.ID, "Engineer");
+      const newEngineer = new Engineer(resp.name, resp.ID, "Engineer", resp.gitHub);
       newIntern.appendToTextFile();
     })
   }
@@ -116,7 +116,7 @@ function newTeamMember() {
         message: "What school do you attend?",
       }
     ]).then(function(resp) {
-      const newIntern = new Intern(resp.name, resp.ID, "Intern");
+      const newIntern = new Intern(resp.name, resp.ID, "Intern", resp.school);
       console.log(newIntern);
       newIntern.appendToTextFile();
     })
