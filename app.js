@@ -6,6 +6,7 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+// Starting prompts to create manager role
 inquirer
   .prompt([
     {
@@ -29,16 +30,17 @@ inquirer
       message: "What is your office number?",
     },
   ]).then(function(response) {
-    const newMan = new Manager(response.name, response.ID, "Manager");
-    newMan.writeToTextFile();
-  })
-//* Ask for manager info
-//  * Build manager object
-//  * Use manager object to write to log file
-//  * Go to build team
- 
-//  
+    // Creates new manager object
+    const newMan = new Manager(response.name, response.ID, response.email, response.officeNum);
 
+    // Calling function from manager.js to append responses to text file
+    newMan.writeToTextFile();
+
+    // Looping to creating new team member function once text for manager is appended
+    newTeamMember();
+  })
+
+// Prompts new role to be created, then goes to appropriate function for specific role. Once finished, 'finished' will appear in console log and loop will stop 
 function newTeamMember() {
   inquirer
     .prompt([
@@ -46,7 +48,7 @@ function newTeamMember() {
         type: "list",
         name: "title",
         message: "What is your role?",
-        choices: ['Engineer', 'Intern', 'Finish']
+        choices: ['Engineer', 'Intern', 'Finished']
       }
     ]).then (function(resp) {
       switch (resp.title) {
@@ -57,12 +59,13 @@ function newTeamMember() {
           newIntern();
           break;
         case 'Finish':
-          console.log("Finish");
+          console.log("Finished");
           break;
       }
     });
   }
 
+  // Prompts for Engineer role, once 'Engineer' is chosen as new team member to be created
   function newEngineer() {
     inquirer
     .prompt([
@@ -87,11 +90,19 @@ function newTeamMember() {
         message: "What is your gitHub username?",
       }
     ]).then(function(resp) {
+      // Creating new Engineer obj
       const newEngineer = new Engineer(resp.name, resp.ID, "Engineer", resp.gitHub);
-      newIntern.appendToTextFile();
+
+      // Calling function from engineer.js to append responses to text file
+      newEngineer.appendToTextFile();
+
+      // Looping to creating new team member function once text for engineer is appended
+      newTeamMember();
     })
+   
   }
 
+  // Prompts for Intern role, once 'Intern' is chosen as new team member to be created
   function newIntern() {
     inquirer
     .prompt([
@@ -116,88 +127,14 @@ function newTeamMember() {
         message: "What school do you attend?",
       }
     ]).then(function(resp) {
+
+      // Creating new Intern obj
       const newIntern = new Intern(resp.name, resp.ID, "Intern", resp.school);
-      console.log(newIntern);
+
+      // Calling function from intern.js to append responses to text file
       newIntern.appendToTextFile();
-    })
+
+      // Looping to creating new team member function once text for intern is appended
+      newTeamMember();
+    })  
   }
-
-
-
-
-
-// //  * Build team:
-// //  *    - Ask what type of team member, or finish
-// //  *    - Use switch statement to go to next step
-// //  * 
-// //  * For Interns:
-// //  *   - Ask for their info: name, email, school
-// //  *   - Make intern object
-// //  *   - Append text file
-// //  *   - Go back to build team
-// //  * 
-// //  * For Engineers:
-// //  *   - Ask for their info: name, email, github
-// //  *   - Make engineer object
-// //  *   - Append text file
-// //  *   - Go back to build team
-// //  */
-
-// // function buildManager(){
-// //   // inquirer questions
-// //   // Build manger object
-
-// //   // QWrite log file
-// //   // Go to Choose Team Member Type
-// // }
-
-// // function chooseTeamMemberType(){
-// //   // inquirer question
-// //   // switch statement sends user to the next fuction
-// // }
-
-// // function buildEngineer(){
-
-
-// //   // send back to chooseTeamMemberType
-// // }
-
-// // function buildIntern(){
-
-
-// //   // send back to chooseTeamMemberType()
-// // }
-
-
-
-
-
-// const questions = [
-//     {
-//       type: "list",
-//       name: "title",
-//       message: "What is your role?",
-//       choices: ['Engineer', 'Intern', 'Finish']
-//     },
-//     {
-//       type: "input",
-//       name: "name",
-//       message: "What is your name?",
-//     },
-//     {
-//       type: "input",
-//       name: "ID",
-//       message: "What is your ID?",
-//     },
-//     {
-//       type: "input",
-//       name: "email",
-//       message: "What is your email?",
-//     }
-//   ]
-
-//   inquirer.prompt(questions)
-
-//   .then(function(resp) {
-//     const newEmployee = new Employee(resp.name, resp.ID, resp.title);
-//     newEmployee.getName();

@@ -1,0 +1,24 @@
+
+      Team:
+      ==============================
+      Role: Manager
+      Name: fbd
+      ID: dfg
+      Email: sdv
+      Office Number: sdf
+      ------------------------------
+    
+      Role: Engineer
+      Name: sdvsd
+      ID: sds
+      Email: undefined
+      GitHub: sdfs
+      ------------------------------
+    
+      Role: Intern
+      Name: aesfaw
+      ID: sdgs
+      Email: undefined
+      School: fae
+      ------------------------------
+    
